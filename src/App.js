@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './App.css'
+import Card from './Components/Card.js'
+import tiers from './data.js'
 
-function App() {
+export default function App() {
+  const cards = tiers.map((tier, index) => (
+    <Card 
+      key={index}
+      {...tier}
+
+    />
+  ))
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1 class="title">React Price Card Task</h1>
+      <main className="card-container">
+        { cards }
+      </main>
     </div>
-  );
+  )
 }
-
-export default App;
